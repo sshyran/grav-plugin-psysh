@@ -96,10 +96,10 @@ See Also:
 
 # Future plans
 
-* Interactive debugging from
-** inline server (php -S)
-** cli scripts
-** from any event
+* Interactive debugging from:
+  * inline server (php -S)
+  * cli scripts
+  * from any event
 * Admin panel
 
 # Attributions
