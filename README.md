@@ -6,19 +6,38 @@ Visit [PsySH](http://psysh.org/) homepage for full details.
 
 ![](assets/grav-psy-shell.png)
 
-# Enabling plugin
+# How to fire a shell
 
-Since this plugin only work from command line, there's no need to enable it in the config.
+## command line
 
-# Usage
+`bin/plugin psysh shell`
 
-To fire PsySH use `bin/plugin psysh shell`.
+## inline server
 
-Type `help` for a list of commands.
+* Open a terminal.
+* `cd` to your Grav install.
+* Start PHP inline server with `php -S 127.0.0.1:8080 system/router.php`.
+* Add `eval(\Psy\sh())` in your PHP file, where function calls are allowed.
+* Visit [127.0.0.1:8080](http://127.0.0.1:8080).
+* A shell will fire in your terminal.
+* Do your magic.
+* Hit **ctrl-d** to exit.
 
-## Examples
+The server will return to normal execution. From there, you can change `eval(\Psy\sh())` location, return to your browser, hit F5, return to your terminal and use the new session.
 
-### test without var_dump; die;
+You can fire a shell anywhere once plugins are loaded. Including in Grav core.
+
+## from a web server
+
+Won't work. The shell need a terminal to fire.
+
+# Understanding shell context
+
+PsySH shell run in the context of a PHP execution. The shell execute where `eval(\Psy\sh())` is called. The `whereami` command will help you figure out where this happen in the code.
+
+# Usage examples
+
+## test without var_dump; die;
 
 ```
 >>> null >= 0
@@ -29,7 +48,7 @@ PHP warning:  A non-numeric value encountered on line 1
 => 2
 ```
 
-### show source
+## show source
 
 ```
 >>> list --methods Grav\Common\Grav
@@ -41,7 +60,7 @@ Class Methods: __call, __construct, extend, factory, fallbackUrl, fireEvent, hea
     278|     }
 ```
 
-### inspect an instance
+## inspect an instance
 
 ```
 >>> use Grav\Common\User\User
@@ -58,7 +77,7 @@ Class Methods: __construct, __get, __isset, __set, __unset, authenticate, author
 
 ```
 
-### redneck testing
+## redneck testing
 
 ```psysh
 >>> $grav_core = new Grav();
@@ -71,7 +90,7 @@ Class Methods: __call, __construct, extend, factory, fallbackUrl, fireEvent, hea
 InvalidArgumentException with message 'Identifier "config" is not defined.'
 ```
 
-### read PHP doc
+## read PHP doc
 
 ```
 >>> doc array_reverse
@@ -94,14 +113,6 @@ See Also:
 
 ```
 
-# Future plans
-
-* Interactive debugging from:
-  * inline server (php -S)
-  * cli scripts
-  * from any event
-* Admin panel
-
-# Attributions
+# Attribution
 
 This plugin include the PsySH executable created and maintained by Justin Hileman at [github.com/bobthecow/psysh](https://github.com/bobthecow/psysh)
