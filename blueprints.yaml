@@ -1,12 +1,12 @@
 name: Psysh
-version: 1.0.3
+version: 1.0.4
 description: Provide a Psysh shell
 icon: terminal
 author:
   name: Frédéric Potvin
   email: web@akeif.me
   url: https://akeif.me
-keywords: plugin, shell
+keywords: plugin, debugger, shell
 homepage: https://github.com/akeif/grav-plugin-psysh
 bugs: https://github.com/akeif/grav-plugin-psysh/issues
 license: MIT

@@ -1,3 +1,7 @@
+# v1.0.4
+1. [](#bugfix)
+    * Plugin not showing in the admin
+
 # v1.0.3
 1. [](#bugfix)
     * Version number in blueprint
