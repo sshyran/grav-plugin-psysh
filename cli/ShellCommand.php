@@ -27,7 +27,11 @@ class ShellCommand extends ConsoleCommand
      */
     protected function serve()
     {
-        require_once __DIR__ . '/psysh';
+        /**
+         * '/../ usage should be fine
+         * Composer does it https://git.io/vSWp9
+         */
+        require_once __DIR__ . '/../psysh.phar';
         extract(\Psy\Shell::debug(get_defined_vars()));
     }
 }
