@@ -6,7 +6,11 @@ Visit [PsySH](http://psysh.org/) homepage for full details.
 
 ![](assets/grav-psy-shell.png)
 
-# How to fire a shell
+# Install
+
+`bin/gpm install psysh`
+
+# Fire a shell from
 
 ## command line
 
@@ -27,7 +31,7 @@ The server will return to normal execution. From there, you can change `eval(\Ps
 
 You can fire a shell anywhere once plugins are loaded. Including in Grav core.
 
-## from a web server
+## web server
 
 Won't work. The shell need a terminal to fire.
 
