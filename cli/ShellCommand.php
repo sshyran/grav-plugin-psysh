@@ -28,8 +28,9 @@ class ShellCommand extends ConsoleCommand
     protected function serve()
     {
         /**
-         * '/../ usage should be fine
-         * Composer does it https://git.io/vSWp9
+         * Get a Grav instance with
+         * `$g = \Grav\Common\Grav::instance()`
+         * Type `help` for a list of command 
          */
         require_once __DIR__ . '/../psysh.phar';
         extract(\Psy\Shell::debug(get_defined_vars()));

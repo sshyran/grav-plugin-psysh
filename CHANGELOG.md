@@ -1,3 +1,11 @@
+# v1.1.0
+## 05/04/2017
+
+1. [](#new)
+    * Can now fire shell from twig
+1. [](#improved)
+    * Added help comment for `whereami`
+
 # v1.0.5
 ## 05/04/2017
 
