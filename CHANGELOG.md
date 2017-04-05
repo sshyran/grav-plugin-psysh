@@ -1,3 +1,9 @@
+# v1.1.0
+## 05/04/2017
+
+1. [](#new)
+    * Can now fire shell from twig
+
 # v1.0.5
 ## 05/04/2017
 
