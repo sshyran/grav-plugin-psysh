@@ -5,10 +5,27 @@ use Grav\Common\Plugin;
 
 class PsyshPlugin extends Plugin
 {
-    public function __construct($name, $grav, $config = null)
+    public static function getSubscribedEvents()
     {
-        parent::__construct($name, $grav, $config);
+        return [
+            'onPluginsInitialized' => ['onPluginsInitialized', 0]
+        ];
+    }
 
+    /**
+     * PLUGIN EVENTS
+     */
+    public function onPluginsInitialized()
+    {
+        $this->require_binary();
+    }
+
+
+    /**
+     * PLUGIN METHODS
+     */
+    protected function require_binary()
+    {
         /**
          * Update with `wget https://git.io/psysh -O psysh.phar`
          * More at http://psysh.org
