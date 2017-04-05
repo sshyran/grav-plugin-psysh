@@ -10,17 +10,3 @@ keywords: plugin, debugger, shell
 homepage: https://github.com/akeif/grav-plugin-psysh
 bugs: https://github.com/akeif/grav-plugin-psysh/issues
 license: MIT
-
-form:
-  validation: strict
-  fields:
-    enabled:
-        type: toggle
-        label: Plugin status
-        highlight: 1
-        default: 1
-        options:
-            1: Enabled
-            0: Disabled
-        validate:
-            type: bool
