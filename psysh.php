@@ -58,7 +58,6 @@ class PsyshPlugin extends Plugin
          * =============== WARNING ===============
          * Shell context is
          * \Grav\Plugin\PsyshPlugin::fire_shell()
-         * 
          * Use $grav['twig'] to debug
          **/
         extract(\Psy\Shell::debug(get_defined_vars()));

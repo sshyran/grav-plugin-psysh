@@ -12,11 +12,8 @@ class PsyshTwigExtension extends \Twig_Extension
     {
         return [
             new \Twig_SimpleFunction(
-                'psysh',
-                [
-                    $this,
-                    'fire_shell_from_twig'
-                ]
+                $twig_function_name = 'psysh',
+                $php_function = [$this,'fire_shell_from_twig']
             )
         ];
     }
