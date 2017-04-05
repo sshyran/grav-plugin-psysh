@@ -8,7 +8,8 @@ class PsyshPlugin extends Plugin
     public static function getSubscribedEvents()
     {
         return [
-            'onPluginsInitialized' => ['onPluginsInitialized', 0]
+            'onPluginsInitialized' => ['onPluginsInitialized', 0],
+            'onTwigExtensions' => ['onTwigExtensions', 0],
         ];
     }
 
@@ -17,9 +18,15 @@ class PsyshPlugin extends Plugin
      */
     public function onPluginsInitialized()
     {
+        require_once(__DIR__ . '/global/function.php');
         $this->require_binary();
     }
 
+    public function onTwigExtensions()
+    {
+        require_once(__DIR__ . '/twig/PsyshTwigExtension.php');
+        $this->grav['twig']->twig->addExtension(new PsyshTwigExtension());
+    }
 
     /**
      * PLUGIN METHODS
@@ -37,22 +44,7 @@ class PsyshPlugin extends Plugin
         ob_end_clean();
     }
 
-    /**
-     * Once the plugin load, this must be usable
-     * from anywhere within: Grav core, any plugins
-     * and any theme.
-     *
-     * Thus, it might be possible that something
-     * is not properly instanciated. It must be
-     * strongly validated.
-     *
-     * Also, this must not crash if the plugin is
-     * disabled.
-     *
-     * Use \Grav\Plugin\PsyshPlugin::fire_shell();
-     */
-
-    static function fire_shell()
+    static function fire_shell_from_twig()
     {
         $grav = \Grav\Common\Grav::instance();
         if(!$grav) return;
@@ -60,6 +52,15 @@ class PsyshPlugin extends Plugin
         $psysh_enabled = $grav['config']->get('plugins.psysh.enabled');
         if(!$psysh_enabled) return;
 
-        eval(\Psy\sh());
+        /**
+         * This comment will be visible with `whereami`
+         *
+         * =============== WARNING ===============
+         * Shell context is
+         * \Grav\Plugin\PsyshPlugin::fire_shell()
+         * 
+         * Use $grav['twig'] to debug
+         **/
+        extract(\Psy\Shell::debug(get_defined_vars()));
     }
 }
