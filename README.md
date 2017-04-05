@@ -31,9 +31,20 @@ The server will return to normal execution. From there, you can change `eval(\Ps
 
 You can fire a shell anywhere once plugins are loaded. Including in Grav core.
 
-## web server
+## virtual machine
 
-Won't work. The shell need a terminal to fire.
+* Log on your VM with SSH.
+* Run Grav on PHP inline server.
+
+Read above instructions on how to use PHP inline server.
+You will need use the machine public IP instead of 127.0.0.1 when calling `php -S`.
+
+## other web servers
+
+The shell can't fire when running Grav on web servers such as NGINX, Apache and Lighttpd.
+
+You'll need to use the PHP inline server on your web server.
+Read above instructions on how to fire from a virtual machine.
 
 # Understanding shell context
 
