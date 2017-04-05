@@ -36,4 +36,30 @@ class PsyshPlugin extends Plugin
         require($psysh_binary);
         ob_end_clean();
     }
+
+    /**
+     * Once the plugin load, this must be usable
+     * from anywhere within: Grav core, any plugins
+     * and any theme.
+     *
+     * Thus, it might be possible that something
+     * is not properly instanciated. It must be
+     * strongly validated.
+     *
+     * Also, this must not crash if the plugin is
+     * disabled.
+     *
+     * Use \Grav\Plugin\PsyshPlugin::fire_shell();
+     */
+
+    static function fire_shell()
+    {
+        $grav = \Grav\Common\Grav::instance();
+        if(!$grav) return;
+        if(!isset($grav['config'])) return;
+        $psysh_enabled = $grav['config']->get('plugins.psysh.enabled');
+        if(!$psysh_enabled) return;
+
+        eval(\Psy\sh());
+    }
 }

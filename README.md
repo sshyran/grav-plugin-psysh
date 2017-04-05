@@ -21,13 +21,13 @@ Visit [PsySH](http://psysh.org/) homepage for full details.
 * Open a terminal.
 * `cd` to your Grav install.
 * Start PHP inline server with `php -S 127.0.0.1:8080 system/router.php`.
-* Add `eval(\Psy\sh())` in your PHP file, where function calls are allowed.
+* Add `\Grav\Plugin\PsyshPlugin::fire_shell();` in your PHP file, where function calls are allowed.
 * Visit [127.0.0.1:8080](http://127.0.0.1:8080).
 * A shell will fire in your terminal.
 * Do your magic.
 * Hit **ctrl-d** to exit.
 
-The server will return to normal execution. From there, you can change `eval(\Psy\sh())` location, return to your browser, hit F5, return to your terminal and use the new session.
+The server will return to normal execution. From there, you can change `\Grav\Plugin\PsyshPlugin::fire_shell();` location, return to your browser, hit F5, return to your terminal and use the new session.
 
 You can fire a shell anywhere once plugins are loaded. Including in Grav core.
 
@@ -48,7 +48,7 @@ Read above instructions on how to fire from a virtual machine.
 
 # Understanding shell context
 
-PsySH shell run in the context of a PHP execution. The shell execute where `eval(\Psy\sh())` is called. The `whereami` command will help you figure out where this happen in the code.
+PsySH shell run in the context of a PHP execution. The shell execute where `\Grav\Plugin\PsyshPlugin::fire_shell();` is called. The `whereami` command will help you figure out where this happen in the code.
 
 # Usage examples
 
