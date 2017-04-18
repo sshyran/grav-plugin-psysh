@@ -18,7 +18,6 @@ class PsyshPlugin extends Plugin
      */
     public function onPluginsInitialized()
     {
-        require_once(__DIR__ . '/global/function.php');
         $this->require_binary();
     }
 
