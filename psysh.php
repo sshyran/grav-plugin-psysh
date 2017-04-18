@@ -5,10 +5,15 @@ use Grav\Common\Plugin;
 
 class PsyshPlugin extends Plugin
 {
+    public function __construct($name, $grav, $config = null)
+    {
+        parent::__construct($name, $grav, $config);
+        $this->require_binary();
+    }
+
     public static function getSubscribedEvents()
     {
         return [
-            'onPluginsInitialized' => ['onPluginsInitialized', 0],
             'onTwigExtensions' => ['onTwigExtensions', 0],
         ];
     }
@@ -16,11 +21,6 @@ class PsyshPlugin extends Plugin
     /**
      * PLUGIN EVENTS
      */
-    public function onPluginsInitialized()
-    {
-        $this->require_binary();
-    }
-
     public function onTwigExtensions()
     {
         require_once(__DIR__ . '/twig/PsyshTwigExtension.php');
