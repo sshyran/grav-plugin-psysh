@@ -12,7 +12,7 @@ Visit [PsySH](http://psysh.org/) homepage for full details.
 
 # Usage
 
-Read [usage instructions](USAGE.md)
+Read [usage instructions](USAGE.md).
 
 # Attribution
 
