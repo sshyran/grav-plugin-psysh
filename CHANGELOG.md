@@ -1,3 +1,14 @@
+# v1.2.0
+## 17-04-2017
+
+1. [](#improved)
+    * Simplified README
+    * Clearer usage instructions
+    * Usage instructions screenshots
+
+1. [](#bugfix)
+    * Can, again, break in plugin
+
 # v1.1.1
 ## 17-04-2017
 
