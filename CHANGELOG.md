@@ -36,7 +36,7 @@
 # v1.0.4
 ## 01-04-2017
 
-1. [](#bugfix)
+1. [](#bugfix)
     * Plugin not showing in the admin
 
 # v1.0.3
